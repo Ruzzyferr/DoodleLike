@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DoodleLike.Models.Dtos.FutureMeetings>
+
+@{
+    ViewData["Title"] = "Future Meetings";
+}
+
+<h1 class="display-4">Future Meetings</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Meeting Title</th>
+            <th>Description</th>
+            <th>Selected Date</th>
+            <th>Expected Participants</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var meeting in Model)
+        {
+            <tr>
+                <td>@meeting.Title</td>
+                <td>@meeting.Description</td>
+                <td>@meeting.SelectedDate</td>
+                <td>@meeting.ExpectedParticipantCount</td>
+            </tr>
+        }
+    </tbody>
+</table>

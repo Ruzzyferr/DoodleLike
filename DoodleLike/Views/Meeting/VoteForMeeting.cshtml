@@ -1,0 +1,19 @@
+﻿@model DoodleLike.Models.entity.Meeting
+
+<h1>Vote for Meeting Dates</h1>
+
+<form asp-controller="Meeting" asp-action="Vote" method="post">
+    <input type="hidden" name="uniqueId" value="@Model.UniqueId" />
+    @foreach (var timeSlot in Model.TimeSlots)
+    {
+        <div>
+            <label>
+                <input type="checkbox" name="selectedDates" value="@timeSlot.TimeSlotID" />
+                @timeSlot.StartTime.ToString("dd/MM/yyyy HH:mm") - @timeSlot.EndTime.ToString("dd/MM/yyyy HH:mm")
+                <span>(Votes: @timeSlot.Vote)</span>
+            </label>
+        </div>
+    }
+    <input type="submit" value="Submit Votes" />
+</form>
+

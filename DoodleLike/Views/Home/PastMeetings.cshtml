@@ -1,0 +1,28 @@
+﻿@model IEnumerable<DoodleLike.Models.Dtos.PastMeetingsModel>
+
+@{
+    ViewData["Title"] = "Past Meetings";
+}
+
+<h1 class="display-4">Past Meetings</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Meeting Title</th>
+            <th>Description</th>
+            <th>Selected Date</th>
+            <th>Participants</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var meeting in Model)
+        {
+            <tr>
+                <td>@meeting.MeetingName</td>
+                <td>@meeting.Description</td>
+                <td>@meeting.MeetingDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

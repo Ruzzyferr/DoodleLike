@@ -1,0 +1,47 @@
+﻿@model DoodleLike.Models.Dtos.VMRegister;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form asp-controller="Access" asp-action="Register" method="post">
+        <div>
+            <label for="FirstName">First Name:</label>
+            <input type="text" id="FirstName" name="FirstName" asp-for="FirstName" />
+        </div>
+        <div>
+            <label for="LastName">Last Name:</label>
+            <input type="text" id="LastName" name="LastName" asp-for="LastName" />
+        </div>
+        <div>
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" asp-for="Email" />
+        </div>
+        <div>
+            <label for="Password">Password:</label>
+            <input type="password" id="Password" name="Password" asp-for="Password" />
+        </div>
+        <div class="form-group">
+            <label asp-for="PasswordVerify"></label>
+            <input type="password" asp-for="PasswordVerify" class="form-control" />
+            <span asp-validation-for="PasswordVerify" class="text-danger"></span>
+        </div>
+        <button type="submit">Register</button>
+
+        @if (ViewData["ValidateMessage"] != null)
+        {
+            <br />
+            <br />
+            <label>@ViewData["ValidateMessage"]</label>
+        }
+
+    </form>
+</body>
+</html>

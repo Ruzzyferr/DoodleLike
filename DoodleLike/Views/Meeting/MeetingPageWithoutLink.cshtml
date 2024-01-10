@@ -1,0 +1,15 @@
+﻿<h1>@Model.Title</h1>
+<p>@Model.Description</p>
+
+<h3>Meeting Dates:</h3>
+<ul>
+    @foreach (var timeSlot in Model.TimeSlots)
+    {
+        <li>
+            @timeSlot.StartTime.ToShortDateString() @timeSlot.StartTime.ToShortTimeString()
+            -
+            @timeSlot.EndTime.ToShortDateString() @timeSlot.EndTime.ToShortTimeString()
+            | Votes: @timeSlot.Vote
+        </li>
+    }
+</ul>

@@ -1,0 +1,37 @@
+﻿@model DoodleLike.Models.Dtos.MeetingCreateDto
+
+<form asp-controller="Meeting" asp-action="Create" method="post">
+    <div>
+        <label asp-for="Title">Title:</label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+    <div>
+        <label asp-for="Description">Description:</label>
+        <textarea asp-for="Description"></textarea>
+        <span asp-validation-for="Description"></span>
+    </div>
+
+    <div>
+        <label asp-for="SelectedDates">Select Dates:</label>
+        <select asp-for="SelectedDates" asp-items="@Model.AvailableTimeSlots" multiple="multiple">
+            <!-- multiple özelliği birden fazla seçim yapılabilmesini sağlar -->
+        </select>
+        <span asp-validation-for="SelectedDates"></span>
+    </div>
+
+    <div>
+        <label asp-for="MeetingDurationMinutes">Meeting Duration (minutes):</label>
+        <input asp-for="MeetingDurationMinutes" type="number" />
+        <span asp-validation-for="MeetingDurationMinutes"></span>
+    </div>
+
+    <div>
+        <label asp-for="Deadline">Deadline (days):</label>
+        <input asp-for="Deadline" type="number" />
+        <span asp-validation-for="Deadline"></span>
+    </div>
+    <div>
+        <input type="submit" value="Create Meeting" />
+    </div>
+</form>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DoodleLike.Models.Dtos.OngoingMeetingsModel>
+
+@{
+    ViewData["Title"] = "Ongoing Meetings";
+}
+
+<h1 class="display-4">Ongoing Meetings</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Meeting Title</th>
+            <th>Description</th>
+            <th>Deadline</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var meeting in Model)
+        {
+            <tr>
+                <td>@meeting.MeetingName</td>
+                <td>@meeting.Description</td>
+                <td>@meeting.Deadline</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Meeting" asp-action="MeetingPageWithoutLink" asp-route-uniqueId="@meeting.UniqueId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

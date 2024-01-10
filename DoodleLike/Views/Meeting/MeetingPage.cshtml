@@ -1,0 +1,20 @@
+﻿<h1>@Model.Title</h1>
+<p>@Model.Description</p>
+
+<h3>Meeting Dates:</h3>
+<ul>
+    @foreach (var timeSlot in Model.TimeSlots)
+    {
+        <li>
+            @timeSlot.StartTime.ToShortDateString() @timeSlot.StartTime.ToShortTimeString()
+            -
+            @timeSlot.EndTime.ToShortDateString() @timeSlot.EndTime.ToShortTimeString()
+            | Votes: @timeSlot.Vote
+        </li>
+    }
+</ul>
+
+<h3>Unique Link:</h3>
+<p>@Url.Action("VoteForMeeting", "Meeting", new { uniqueId = Model.UniqueId }, Context.Request.Scheme)</p>
+
+
